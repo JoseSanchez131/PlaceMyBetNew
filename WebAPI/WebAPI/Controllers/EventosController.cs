@@ -8,10 +8,11 @@ namespace WebAPI.Controllers
     {
    
         // GET: api/Eventos
-        public IEnumerable <Eventos> Get()
+        public IEnumerable <EventosDTO> Get()
         {
             var repo = new EventosRepository();
-            List <Eventos> e = repo.Retrieve();
+            // List <Eventos> e = repo.Retrieve();
+            List <EventosDTO> e = repo.RetrieveDTO();
             return e;
         }
 

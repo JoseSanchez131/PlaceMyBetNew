@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using WebAPI.Models;
+using static WebAPI.Models.Mercado;
 
 namespace WebAPI.Controllers
 {
@@ -12,10 +13,11 @@ namespace WebAPI.Controllers
     {
 
         // GET: api/Mercado/
-        public IEnumerable <Mercado> Get()
+        public IEnumerable <MercadoDTO> Get()
         { 
             var repo = new MercadoRepository();
-            List<Mercado> m = repo.Retrieve();
+            // List<Mercado> m = repo.Retrieve();
+            List<MercadoDTO> m = repo.RetrieveDTO();
             return m;
         }
 

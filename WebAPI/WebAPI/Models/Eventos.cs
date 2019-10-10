@@ -20,4 +20,20 @@ namespace WebAPI.Models
         public string Visitant { get; set; }
         public int Goles { get; set; }
     }
+
+    public class EventosDTO
+    {
+
+        public EventosDTO( string local, string visitant)
+        {
+            
+            Local = local;
+            Visitant = visitant;
+        }
+
+        public string Local { get; set; }
+        public string Visitant { get; set; }
+        
+
+    }
 }

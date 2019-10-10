@@ -52,5 +52,39 @@ namespace WebAPI.Models
             }
         }
 
+        internal List<ApuestaDTO> RetrieveDTO()
+        {
+
+            MySqlConnection con = Connect();
+            MySqlCommand command = con.CreateCommand();
+            command.CommandText = "select * from apuesta";
+
+            try
+            {
+                con.Open();
+                MySqlDataReader res = command.ExecuteReader();
+
+                ApuestaDTO a = null;
+                List<ApuestaDTO> apuesta = new List<ApuestaDTO>();
+                while (res.Read())
+                {
+
+                    Debug.WriteLine("Recuperado: " + res.GetInt32(0) + " " + res.GetInt32(1) + " " + res.GetString(2) + " " + res.GetInt32(3) + " " + res.GetDouble(4) + " " + res.GetInt32(5));
+
+                    a = new ApuestaDTO(res.GetString(2), res.GetInt32(3), res.GetDouble(4), res.GetInt32(5));
+                }
+
+                con.Close();
+                return apuesta;
+            }
+
+            catch (MySqlException e)
+            {
+                Debug.WriteLine("Se ha producido un error de conexion");
+                return null;
+            }
+        }
+
+
     }
 }

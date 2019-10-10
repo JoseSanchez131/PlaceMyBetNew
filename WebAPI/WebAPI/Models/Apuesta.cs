@@ -24,4 +24,22 @@ namespace WebAPI.Models
         public double Cuota { get; set; }
         public int Dinero_apostado { get; set; }
     }
+
+    public class ApuestaDTO
+    {
+        public ApuestaDTO(string email, double tipo_apuesta, double cuota, int dinero_apostado)
+        {
+            
+            Email = email;
+            Tipo_apuesta = tipo_apuesta;
+            Cuota = cuota;
+            Dinero_apostado = dinero_apostado;
+        }
+
+    
+        public string Email { get; set; }
+        public double Tipo_apuesta { get; set; }
+        public double Cuota { get; set; }
+        public int Dinero_apostado { get; set; }
+    }
 }

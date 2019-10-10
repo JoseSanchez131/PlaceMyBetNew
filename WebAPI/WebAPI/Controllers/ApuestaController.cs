@@ -12,10 +12,11 @@ namespace WebAPI.Controllers
     {
      
         // GET: api/Apuesta/
-        public IEnumerable <Apuesta> Get()
+        public IEnumerable <ApuestaDTO> Get()
         {
             var repo = new ApuestaRepository();
-            List <Apuesta> a = repo.Retrieve();
+            // List <Apuesta> a = repo.Retrieve();
+            List<ApuestaDTO> a = repo.RetrieveDTO();
             return a;
         }
 
