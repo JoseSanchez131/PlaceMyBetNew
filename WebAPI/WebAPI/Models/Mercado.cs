@@ -43,5 +43,7 @@ namespace WebAPI.Models
             public double Cuota_under { get; set; }
           
         }
+
+
     }
 }

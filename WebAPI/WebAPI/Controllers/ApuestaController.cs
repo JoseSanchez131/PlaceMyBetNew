@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -21,8 +22,11 @@ namespace WebAPI.Controllers
         }
 
         // POST: api/Apuesta
-        public void Post([FromBody]string value)
+        public void Post([FromBody]Apuesta apuesta)
         {
+            Debug.WriteLine("DENTRO de post apuesta vale " + apuesta);
+            var repo = new ApuestaRepository();
+            repo.insertarApuesta(apuesta);
         }
 
         // PUT: api/Apuesta/5
