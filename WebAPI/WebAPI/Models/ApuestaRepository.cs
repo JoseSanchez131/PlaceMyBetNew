@@ -127,13 +127,14 @@ namespace WebAPI.Models
 
             command.CommandText = "select dinero_apostado_over from mercado where id_mercado=" + a.IdMercado + "; ";
 
+            Debug.WriteLine("COMMAND " + command.CommandText);
+
             MySqlDataReader reader = command.ExecuteReader();
 
             reader.Read();
+           
 
             double dineroOver = reader.GetDouble(0);
-
-            dineroOver = dineroOver + a.DineroApostado;
 
             reader.Close();
 
@@ -151,19 +152,28 @@ namespace WebAPI.Models
 
             double dineroUnder = reader.GetDouble(0);
 
-            dineroUnder = dineroUnder + a.DineroApostado;
-
             reader.Close();
 
             con.Close();
 
+            if(a.TipoApuesta == 1)
+            {
+                dineroOver = dineroOver + a.DineroApostado;
+            }
+            else
+            {
+                dineroUnder = dineroUnder + a.DineroApostado;
+            }
 
+            Debug.WriteLine(dineroOver);
+            Debug.WriteLine(dineroUnder);
 
             double po = dineroOver / (dineroOver + dineroUnder);
 
             double pu = dineroUnder / (dineroUnder + dineroOver);
 
-
+            Debug.WriteLine(po);
+            Debug.WriteLine(pu);
 
             double co = Convert.ToDouble((1 / po) * 0.95);
 
