@@ -21,6 +21,31 @@ namespace WebAPI.Controllers
             return a;
         }
 
+        // GET: api/Apuesta?email=email
+        [Authorize]
+        public IEnumerable<ApuestaDTO1> GetEmail(String email_fk)
+        {
+            var repo = new ApuestaRepository();
+
+            List<ApuestaDTO1> apuesta = repo.RetrieveEmail (email_fk);
+
+            return apuesta;
+        }
+
+
+        // GET: api/Apuesta?id_mercado=id_mercado
+        [Authorize(Roles ="Admin")]
+        public IEnumerable<ApuestaDTO> GetTipoUnderOver(int id_mercado_fk)
+        {
+            var repo = new ApuestaRepository();
+
+            List<ApuestaDTO> apuesta = repo.RetrieveDatos(id_mercado_fk);
+
+            return apuesta;
+        }
+
+
+
         // POST: api/Apuesta
         public void Post([FromBody]Apuesta apuesta)
         {

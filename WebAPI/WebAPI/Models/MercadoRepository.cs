@@ -55,6 +55,7 @@ namespace WebAPI.Models
             }
         }
 
+
         internal List<MercadoDTO> RetrieveDTO()
         {
 
@@ -89,8 +90,48 @@ namespace WebAPI.Models
                 Debug.WriteLine("Se ha producido un error de conexion");
                 return null;
             }
+            
+        }
+
+        internal List<MercadoDTO> RetrieveTipoUnderOver(int id_mercado)
+        {
+
+            MySqlConnection con = Connect();
+            MySqlCommand command = con.CreateCommand();
+            command.CommandText = "select tipo_mercado,cuota_over,cuota_under from mercado where id_mercado = @A";
+            command.Parameters.AddWithValue("@A", id_mercado);
+
+            try
+            {
+                con.Open();
+                MySqlDataReader res = command.ExecuteReader();
+
+                MercadoDTO m = null;
+                List<MercadoDTO> mercado = new List<MercadoDTO>();
+                while (res.Read())
+                {
+
+                    Debug.WriteLine("Recuperado: " + res.GetInt32(0) + " " + res.GetDouble(1) + " " + res.GetDouble(2));
+
+                    m = new MercadoDTO(res.GetInt32(0), res.GetDouble(1), res.GetDouble(2));
+
+
+                    mercado.Add(m);
+                }
+
+                con.Close();
+                return mercado;
+
+            }
+
+            catch (MySqlException e)
+            {
+                Debug.WriteLine("Se ha producido un error de conexion");
+                return null;
+            }
 
         }
+
 
 
     }

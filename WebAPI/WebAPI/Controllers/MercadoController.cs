@@ -21,6 +21,16 @@ namespace WebAPI.Controllers
             return m;
         }
 
+        // GET: api/Mercado?id_mercado=id_mercado
+        public IEnumerable<MercadoDTO> GetTipoUnderOver(int id_mercado)
+        {
+            var repo = new MercadoRepository();
+          
+            List<MercadoDTO> mercado = repo.RetrieveTipoUnderOver(id_mercado);
+
+            return mercado;
+        }
+
         // POST: api/Mercado
         public void Post([FromBody]string value)
         {

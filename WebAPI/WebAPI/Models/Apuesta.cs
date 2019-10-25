@@ -44,6 +44,27 @@ namespace WebAPI.Models
         public int Dinero_apostado { get; set; }
     }
 
+    public class ApuestaDTO1
+    {
+        public ApuestaDTO1(int id_apuesta , int id_mercado, int tipo_apuesta, double cuota, int dinero_apostado)
+        {
+            this.Id_apuesta = id_apuesta;
+            this.Id_mercado = id_mercado;
+            Tipo_apuesta = tipo_apuesta;
+            Cuota = cuota;
+            Dinero_apostado = dinero_apostado;
+        }
+
+
+        public int Id_apuesta { get; set; }
+        public int Id_mercado { get; set; }
+        public int Tipo_apuesta { get; set; }
+        public double Cuota { get; set; }
+        public int Dinero_apostado { get; set; }
+    }
+    }
+
+
     public class Disco
     {
         public int IdApuesta { get; set; }
@@ -65,4 +86,3 @@ namespace WebAPI.Models
 
         }
     }
-}
