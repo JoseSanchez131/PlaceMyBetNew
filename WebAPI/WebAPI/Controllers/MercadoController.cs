@@ -13,22 +13,22 @@ namespace WebAPI.Controllers
     {
 
         // GET: api/Mercado/
-        public IEnumerable <MercadoDTO> Get()
+        public void Get()
         { 
-            var repo = new MercadoRepository();
-            // List<Mercado> m = repo.Retrieve();
-            List<MercadoDTO> m = repo.RetrieveDTO();
-            return m;
+            //var repo = new MercadoRepository();
+            //// List<Mercado> m = repo.Retrieve();
+            //List<MercadoDTO> m = repo.RetrieveDTO();
+            //return m;
         }
 
         // GET: api/Mercado?id_mercado=id_mercado
-        public IEnumerable<MercadoDTO> GetTipoUnderOver(int id_mercado)
+        public void GetTipoUnderOver(int id_mercado)
         {
-            var repo = new MercadoRepository();
+            //var repo = new MercadoRepository();
           
-            List<MercadoDTO> mercado = repo.RetrieveTipoUnderOver(id_mercado);
+            //List<MercadoDTO> mercado = repo.RetrieveTipoUnderOver(id_mercado);
 
-            return mercado;
+            //return mercado;
         }
 
         // POST: api/Mercado

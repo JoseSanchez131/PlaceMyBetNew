@@ -13,35 +13,35 @@ namespace WebAPI.Controllers
     {
      
         // GET: api/Apuesta/
-        public IEnumerable <ApuestaDTO> Get()
+        public void Get()
         {
-            var repo = new ApuestaRepository();
+           /* var repo = new ApuestaRepository();
             // List <Apuesta> a = repo.Retrieve();
             List<ApuestaDTO> a = repo.RetrieveDTO();
-            return a;
+            return a;]*/
         }
 
         // GET: api/Apuesta?email=email
         [Authorize]
-        public IEnumerable<ApuestaDTO1> GetEmail(String email_fk)
+        public void GetEmail(String email_fk)
         {
-            var repo = new ApuestaRepository();
+            //var repo = new ApuestaRepository();
 
-            List<ApuestaDTO1> apuesta = repo.RetrieveEmail (email_fk);
+            //List<ApuestaDTO1> apuesta = repo.RetrieveEmail (email_fk);
 
-            return apuesta;
+            //return apuesta;
         }
 
 
         // GET: api/Apuesta?id_mercado=id_mercado
         [Authorize(Roles ="Admin")]
-        public IEnumerable<ApuestaDTO> GetTipoUnderOver(int id_mercado_fk)
+        public void GetTipoUnderOver(int id_mercado_fk)
         {
-            var repo = new ApuestaRepository();
+            //var repo = new ApuestaRepository();
 
-            List<ApuestaDTO> apuesta = repo.RetrieveDatos(id_mercado_fk);
+            //List<ApuestaDTO> apuesta = repo.RetrieveDatos(id_mercado_fk);
 
-            return apuesta;
+            //return apuesta;
         }
 
 
@@ -51,7 +51,7 @@ namespace WebAPI.Controllers
         {
             Debug.WriteLine("DENTRO de post apuesta vale " + apuesta);
             var repo = new ApuestaRepository();
-            repo.insertarApuesta(apuesta);
+            
         }
 
         // PUT: api/Apuesta/5
