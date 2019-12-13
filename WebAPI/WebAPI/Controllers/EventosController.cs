@@ -1,34 +1,43 @@
-﻿using System.Collections.Generic;
+﻿
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Web.Http;
 using WebAPI.Models;
+using WebApplication1.Models;
 
-namespace WebAPI.Controllers
+namespace WebApplication1.Controllers
 {
     public class EventosController : ApiController
     {
-   
-        // GET: api/Eventos
-        public void Get()
+
+        public void Post([FromBody]Evento evento)
         {
-            //var repo = new EventosRepository();
-            //// List <Eventos> e = repo.Retrieve();
-            //List <EventosDTO> e = repo.RetrieveDTO();
-            //return e;
+            var repo = new EventosRepository();
+            repo.Save(evento);
         }
 
-        // POST: api/Eventos
-        public void Post([FromBody]string value)
+        public IEnumerable<EventosDTO> Get()
         {
+            var repo = new EventosRepository();
+            List<EventosDTO> Evento = repo.RetrieveDTO();
+            return Evento;
         }
 
-        // PUT: api/Eventos/5
-        public void Put(int id, [FromBody]string value)
+        public void Put(int EventoId, [FromBody]Evento ev)
         {
+            var repo = new EventosRepository();
+            repo.Update(EventoId, ev);
         }
 
-        // DELETE: api/Eventos/5
-        public void Delete(int id)
+
+        public void Delete(int EventoId)
         {
+            var repo = new EventosRepository();
+            repo.Delete(EventoId);
         }
+
     }
 }

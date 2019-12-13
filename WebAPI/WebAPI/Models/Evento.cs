@@ -7,10 +7,10 @@ namespace WebAPI.Models
 {
     public class Evento
     {
-       
+
         public int EventoId { get; set; }
         public string Local { get; set; }
-        public string Visitant { get; set; }
+        public string Visitante { get; set; }
         public int Goles { get; set; }
 
         public List<Mercado> Mercados { get; set; }
@@ -23,22 +23,25 @@ namespace WebAPI.Models
 
         }
 
-        public Evento(int EventoId, string Local, string Visitant, int Goles)
+        public Evento(int EventoId, string Local, string Visitante, int Goles)
         {
             this.EventoId = EventoId;
             this.Local = Local;
-            this.Visitant = Visitant;
+            this.Visitante = Visitante;
             this.Goles = Goles;
         }
     }
 
-    
+public class EventosDTO
+    {
+        public EventosDTO(string Local, string Visitante)
+        {
 
+            this.Local = Local;
+            this.Visitante = Local;
+        }
+        public string Local { get; set; }
+        public string Visitante { get; set; }
 
+    }
 }
-
-
-
-   
-
-

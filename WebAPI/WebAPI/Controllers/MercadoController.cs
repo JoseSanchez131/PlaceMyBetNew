@@ -5,45 +5,39 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using WebAPI.Models;
-using static WebAPI.Models.Mercado;
+using WebApplication1.Models;
 
-namespace WebAPI.Controllers
+namespace WebApplication1.Controllers
 {
-    public class MercadoController : ApiController
+
+    public class MercadosController : ApiController
     {
+        /* public IEnumerable<Mercados> Get()
+         {
+             var repo = new MercadosRepository();
+             List<Mercados> Mercados = repo.Retrieve();
+             return Mercados;
+         }*/
 
-        // GET: api/Mercado/
-        public void Get()
-        { 
-            //var repo = new MercadoRepository();
-            //// List<Mercado> m = repo.Retrieve();
-            //List<MercadoDTO> m = repo.RetrieveDTO();
-            //return m;
-        }
-
-        // GET: api/Mercado?id_mercado=id_mercado
-        public void GetTipoUnderOver(int id_mercado)
+        public IEnumerable<MercadosDTO> Get()
         {
-            //var repo = new MercadoRepository();
-          
-            //List<MercadoDTO> mercado = repo.RetrieveTipoUnderOver(id_mercado);
-
-            //return mercado;
+            var repo = new MercadosRepository();
+            List<MercadosDTO> Mercados = repo.RetrieveDTO();
+            return Mercados;
         }
 
-        // POST: api/Mercado
-        public void Post([FromBody]string value)
+        public Mercado Get(int MercadoId)
         {
+            var repo = new MercadosRepository();
+            Mercado m = repo.RetrieveById(MercadoId);
+            return m;
         }
 
-        // PUT: api/Mercado/5
-        public void Put(int id, [FromBody]string value)
+        public void Post([FromBody]Mercado m)
         {
+            var repo = new MercadosRepository();
+            repo.Save(m);
         }
 
-        // DELETE: api/Mercado/5
-        public void Delete(int id)
-        {
-        }
     }
 }

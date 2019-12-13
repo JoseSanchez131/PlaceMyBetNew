@@ -4,17 +4,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using WebAPI.Models;
+using WebApplication1.Models;
 
 namespace WebApplication2.Models
 {
     public class PlaceMyBetContext : DbContext
     {
-        public DbSet<Cuenta> Cuentas { get; set; } //Taula
-        public DbSet<Usuario> Usuarios { get; set; } //Taula
+        public DbSet<Cuentas> Cuentas { get; set; } //Taula
+        public DbSet<Usuarios> Usuarios { get; set; } //Taula
         public DbSet<Apuesta> Apuestas { get; set; } //Taula
         public DbSet<Mercado> Mercados { get; set; } //Taula
         public DbSet<Evento> Eventos { get; set; } //Taula
-        
+        public object Evento { get; internal set; }
 
         public PlaceMyBetContext()
         {

@@ -1,23 +1,25 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using WebApplication1.Models;
 
 namespace WebAPI.Models
 {
     public class Mercado
     {
-    
-            public int MercadoId { get; set; }
-            public int Tipo_mercado { get; set; }
-            public double Cuota_over { get; set; }
-            public double Cuota_under { get; set; }
-            public double Dinero_over { get; set; }
-            public double Dinero_under { get; set; }
-            public int EventoId { get; set; }
-            public Evento Evento { get; set; }
 
-            public List<Apuesta> Apuestas { get; set; }
+        public int MercadoId { get; set; }
+        public int Tipo_mercado { get; set; }
+        public double Cuota_over { get; set; }
+        public double Cuota_under { get; set; }
+        public double Dinero_over { get; set; }
+        public double Dinero_under { get; set; }
+        public int EventoId { get; set; }
+        public Evento Evento { get; set; }
+
+        public List<Apuesta> Apuestas { get; set; }
 
         public Mercado()
         {
@@ -25,7 +27,7 @@ namespace WebAPI.Models
 
         }
 
-        public Mercado (int MercadoId, int Tipo_mercado, double Cuota_over, double Cuota_under, double Dinero_over, double Dinero_under, int EventoId)
+        public Mercado(int MercadoId, int Tipo_mercado, double Cuota_over, double Cuota_under, double Dinero_over, double Dinero_under, int EventoId)
         {
             this.MercadoId = MercadoId;
             this.Tipo_mercado = Tipo_mercado;
@@ -36,4 +38,24 @@ namespace WebAPI.Models
             this.EventoId = EventoId;
         }
     }
+
+
+public class MercadosDTO
+    {
+
+        public MercadosDTO(int Tipo_mercado, double Cuota_over, double Cuota_under)
+        {
+       
+        this.Tipo_mercado = Tipo_mercado;
+        this.Cuota_over = Cuota_over;
+        this.Cuota_under = Cuota_under;
+     
     }
+
+        public int Tipo_mercado { get; set; }
+        public double Cuota_over { get; set; }
+        public double Cuota_under { get; set; }
+    }
+
+}
+

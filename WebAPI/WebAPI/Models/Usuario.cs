@@ -3,23 +3,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace WebAPI.Models
+namespace WebApplication1.Models
 {
-    public class Usuario
+    public class Usuarios
     {
+        public Usuarios(int UsuarioId, string email, string nombre, string apellido, int edad)
+        {
+            this.UsuarioId = UsuarioId;
+            this.email = email;
+            this.nombre = nombre;
+            this.apellido = apellido;
+            this.edad = edad;
+        }
 
-        public String UsuarioId { get; set; }
-        public String Nombre { get; set; }
-        public String Apellido { get; set; }
-        public int Edad { get; set; }
+        public string email { get; set; }
+        public int UsuarioId { get; set; }
+        public string nombre { get; set; }
 
-        public Cuenta Cuenta { get; set; }
+        public string apellido { get; set; }
+        public int edad { get; set; }
 
-        public List<Apuesta> Apuesta { get; set; }
+        public Cuentas Cuenta { get; set; }
+        public List<Cuentas> Cuentas { get; set; }
 
-        public Usuario ()
-            {
-
-            }
     }
+
+
+
+
 }
